@@ -24,12 +24,21 @@ gem 'bootsnap', '>= 1.4.2', require: false
 group :development, :test do
   # RSpec replaces Rail's default test framework
   gem 'rspec-rails', '~> 4.0'
+  # Capybara is used to test the website's JS and simulate how a user would interact with it when testing
+  gem 'capybara', '~> 3.34'
+  # Selenium is used by Capybara as a JS driver
+  gem 'selenium-webdriver', '~> 3.142'
 end
 
 group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+end
+
+group :test do
+  # Factory Bot replaces Rail's default test fixtures with test factories
+  gem 'factory_bot_rails', '~> 6.1'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
