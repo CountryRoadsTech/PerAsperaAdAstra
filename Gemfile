@@ -22,6 +22,8 @@ gem 'image_processing', '~> 1.2'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
+  # RSpec replaces Rail's default test framework
+  gem 'rspec-rails', '~> 4.0'
 end
 
 group :development do
