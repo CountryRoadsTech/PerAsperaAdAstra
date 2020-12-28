@@ -21,6 +21,9 @@ gem 'image_processing', '~> 1.2'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
+# Turbo (alongside Hotwire) delivers HTML over-the-wire via Action Cable
+gem 'turbo-rails', '~> 0.5'
+
 group :development, :test do
   # RSpec replaces Rail's default test framework
   gem 'rspec-rails', '~> 4.0'

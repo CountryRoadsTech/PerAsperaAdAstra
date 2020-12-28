@@ -186,6 +186,8 @@ GEM
       sprockets (>= 3.0.0)
     thor (1.0.1)
     thread_safe (0.3.6)
+    turbo-rails (0.5.1)
+      rails (>= 6.0.0)
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
@@ -219,6 +221,7 @@ DEPENDENCIES
   selenium-webdriver (~> 3.142)
   spring
   spring-watcher-listen (~> 2.0.0)
+  turbo-rails (~> 0.5)
   turbolinks (~> 5)
   tzinfo-data
   webpacker (~> 4.0)
