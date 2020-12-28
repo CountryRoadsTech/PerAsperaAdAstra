@@ -24,7 +24,7 @@
 .rvmrc
 
 # Ignore Byebug command history file
-.byebug_history
+.byebug_history                                                                        hjnb
 
 # Ignore installed npm/yarn packages
 node_modules/
