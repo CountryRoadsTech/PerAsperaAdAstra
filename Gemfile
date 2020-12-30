@@ -23,6 +23,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 # Turbo (alongside Hotwire) delivers HTML over-the-wire via Action Cable
 gem 'turbo-rails', '~> 0.5'
+# Devise adds user authentication (not authorization)
+gem 'devise', '~> 4.7'
 
 group :development, :test do
   # RSpec replaces Rail's default test framework
