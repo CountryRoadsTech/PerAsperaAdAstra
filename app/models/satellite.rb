@@ -27,4 +27,6 @@
 #
 class Satellite < ApplicationRecord
   belongs_to :user, inverse_of: :satellites
+
+  has_paper_trail # Changes to this model are tracked and stored in the database.
 end
