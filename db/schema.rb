@@ -13,9 +13,10 @@
 ActiveRecord::Schema.define(version: 2021_01_01_164233) do
 
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pgcrypto"
   enable_extension "plpgsql"
 
-  create_table "satellites", force: :cascade do |t|
+  create_table "satellites", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.text "name"
     t.bigint "user_id"
     t.text "international_designator"

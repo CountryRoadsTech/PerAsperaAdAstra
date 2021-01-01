@@ -2,7 +2,7 @@
 #
 # Table name: satellites
 #
-#  id                       :bigint           not null, primary key
+#  id                       :uuid             not null, primary key
 #  apogee                   :decimal(, )
 #  country                  :text
 #  current                  :text

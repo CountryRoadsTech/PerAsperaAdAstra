@@ -1,6 +1,8 @@
 class CreateSatellites < ActiveRecord::Migration[6.0]
   def change
-    create_table :satellites do |t|
+    enable_extension 'pgcrypto' unless extension_enabled?('pgcrypto')
+
+    create_table :satellites, id: :uuid do |t|
       t.text :name
       t.belongs_to :user
       t.text :international_designator
