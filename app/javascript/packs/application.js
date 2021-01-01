@@ -19,4 +19,4 @@ import "controllers"
 
 import "../src/stimulus_application"
 
-import "@hotwired/turbo-rails"
+import { Turbo, cable } from "@hotwired/turbo-rails"
