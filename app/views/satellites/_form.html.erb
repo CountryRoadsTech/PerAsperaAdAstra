@@ -15,22 +15,22 @@
 
     <div class="field">
       <%= form.label :name %>
-      <%= form.text_area :name %>
+      <%= form.text_area :name, placeholder: 'The name of the satellite. *Required' %>
     </div>
 
     <div class="field">
       <%= form.label :international_designator %>
-      <%= form.text_area :international_designator %>
+      <%= form.text_area :international_designator, placeholder: 'The International Designation ID. Leave blank if unknown.' %>
     </div>
 
     <div class="field">
       <%= form.label :norad_catalog_id %>
-      <%= form.text_field :norad_catalog_id %>
+      <%= form.text_field :norad_catalog_id, placeholder: 'The NORAD Catalog ID. Leave blank if unknown.' %>
     </div>
 
     <div class="field">
       <%= form.label :object_type %>
-      <%= form.text_area :object_type %>
+      <%= form.text_area :object_type, placeholder: 'The type of object this satellite is. (e.g. Rocket body, payload, debris, etc.)' %>
     </div>
 
     <div class="field">
