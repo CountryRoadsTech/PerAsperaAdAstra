@@ -10,10 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_01_162738) do
+ActiveRecord::Schema.define(version: 2021_01_01_164233) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "satellites", force: :cascade do |t|
+    t.text "name"
+    t.text "international_designator"
+    t.bigint "norad_catalog_id"
+    t.text "object_type"
+    t.text "country"
+    t.datetime "launch_time"
+    t.text "launch_site"
+    t.datetime "decay_time"
+    t.decimal "period"
+    t.decimal "inclination"
+    t.decimal "apogee"
+    t.decimal "perigee"
+    t.text "radar_cross_section_size"
+    t.text "current"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false

@@ -1,0 +1,74 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @satellite.name %>
+</p>
+
+<p>
+  <strong>International designator:</strong>
+  <%= @satellite.international_designator %>
+</p>
+
+<p>
+  <strong>Norad catalog:</strong>
+  <%= @satellite.norad_catalog_id %>
+</p>
+
+<p>
+  <strong>Object type:</strong>
+  <%= @satellite.object_type %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @satellite.country %>
+</p>
+
+<p>
+  <strong>Launch time:</strong>
+  <%= @satellite.launch_time %>
+</p>
+
+<p>
+  <strong>Launch site:</strong>
+  <%= @satellite.launch_site %>
+</p>
+
+<p>
+  <strong>Decay time:</strong>
+  <%= @satellite.decay_time %>
+</p>
+
+<p>
+  <strong>Period:</strong>
+  <%= @satellite.period %>
+</p>
+
+<p>
+  <strong>Inclination:</strong>
+  <%= @satellite.inclination %>
+</p>
+
+<p>
+  <strong>Apogee:</strong>
+  <%= @satellite.apogee %>
+</p>
+
+<p>
+  <strong>Perigee:</strong>
+  <%= @satellite.perigee %>
+</p>
+
+<p>
+  <strong>Radar cross section size:</strong>
+  <%= @satellite.radar_cross_section_size %>
+</p>
+
+<p>
+  <strong>Current:</strong>
+  <%= @satellite.current %>
+</p>
+
+<%= link_to 'Edit', edit_satellite_path(@satellite) %> |
+<%= link_to 'Back', satellites_path %>

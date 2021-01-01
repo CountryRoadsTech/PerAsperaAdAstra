@@ -1,6 +1,14 @@
 # == Route Map
 #
 #                                Prefix Verb   URI Pattern                                                                              Controller#Action
+#                            satellites GET    /satellites(.:format)                                                                    satellites#index
+#                                       POST   /satellites(.:format)                                                                    satellites#create
+#                         new_satellite GET    /satellites/new(.:format)                                                                satellites#new
+#                        edit_satellite GET    /satellites/:id/edit(.:format)                                                           satellites#edit
+#                             satellite GET    /satellites/:id(.:format)                                                                satellites#show
+#                                       PATCH  /satellites/:id(.:format)                                                                satellites#update
+#                                       PUT    /satellites/:id(.:format)                                                                satellites#update
+#                                       DELETE /satellites/:id(.:format)                                                                satellites#destroy
 #                      new_user_session GET    /users/sign_in(.:format)                                                                 users/sessions#new
 #                          user_session POST   /users/sign_in(.:format)                                                                 users/sessions#create
 #                  destroy_user_session DELETE /users/sign_out(.:format)                                                                users/sessions#destroy
@@ -47,6 +55,9 @@
 
 # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 Rails.application.routes.draw do
+
+  # Adds RESTful routes for satellites.
+  resources :satellites
 
   # Adds routes for user authentication (i.e. /users/sign_in, ...)
   devise_for :users, controllers: {
