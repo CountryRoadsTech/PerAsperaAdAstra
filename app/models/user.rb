@@ -38,4 +38,6 @@ class User < ApplicationRecord
          :confirmable, :lockable, :timeoutable, :trackable
 
   has_paper_trail # Tracks changes to this model.
+
+  has_many :satellites, inverse_of: :user
 end

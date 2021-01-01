@@ -19,10 +19,16 @@
 #  created_at               :datetime         not null
 #  updated_at               :datetime         not null
 #  norad_catalog_id         :bigint
+#  user_id                  :bigint
+#
+# Indexes
+#
+#  index_satellites_on_user_id  (user_id)
 #
 FactoryBot.define do
   factory :satellite do
     name { "MyText" }
+    created_by { :user }
     international_designator { "MyText" }
     norad_catalog_id { "" }
     object_type { "MyText" }

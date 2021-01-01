@@ -69,6 +69,6 @@ class SatellitesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def satellite_params
-      params.require(:satellite).permit(:name, :international_designator, :norad_catalog_id, :object_type, :country, :launch_time, :launch_site, :decay_time, :period, :inclination, :apogee, :perigee, :radar_cross_section_size, :current)
+      params.require(:satellite).permit(:name, :created_by, :international_designator, :norad_catalog_id, :object_type, :country, :launch_time, :launch_site, :decay_time, :period, :inclination, :apogee, :perigee, :radar_cross_section_size, :current)
     end
 end

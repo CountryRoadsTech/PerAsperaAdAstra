@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 2021_01_01_164233) do
 
   create_table "satellites", force: :cascade do |t|
     t.text "name"
+    t.bigint "user_id"
     t.text "international_designator"
     t.bigint "norad_catalog_id"
     t.text "object_type"
@@ -32,6 +33,7 @@ ActiveRecord::Schema.define(version: 2021_01_01_164233) do
     t.text "current"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_satellites_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

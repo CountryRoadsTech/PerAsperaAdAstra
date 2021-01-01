@@ -2,6 +2,7 @@ class CreateSatellites < ActiveRecord::Migration[6.0]
   def change
     create_table :satellites do |t|
       t.text :name
+      t.belongs_to :user
       t.text :international_designator
       t.bigint :norad_catalog_id
       t.text :object_type

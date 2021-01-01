@@ -19,6 +19,12 @@
 #  created_at               :datetime         not null
 #  updated_at               :datetime         not null
 #  norad_catalog_id         :bigint
+#  user_id                  :bigint
+#
+# Indexes
+#
+#  index_satellites_on_user_id  (user_id)
 #
 class Satellite < ApplicationRecord
+  belongs_to :user, inverse_of: :satellites
 end
