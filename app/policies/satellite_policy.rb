@@ -12,7 +12,7 @@ class SatellitePolicy < ApplicationPolicy
   end
 
   def update?
-    record.belongs_to == user or user.try(:admin?)
+    record.user == user or user.try(:admin?)
   end
 
   def destroy?
