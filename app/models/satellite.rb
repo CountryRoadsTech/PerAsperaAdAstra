@@ -41,4 +41,8 @@ class Satellite < ApplicationRecord
   belongs_to :user, inverse_of: :satellites
 
   has_paper_trail # Changes to this model are tracked and stored in the database.
+
+  after_create_commit { broadcast_prepend_to 'satellites' }
+  after_update_commit { broadcast_replace_to 'satellites' }
+  after_destroy_commit { broadcast_remove_to 'satellites' }
 end

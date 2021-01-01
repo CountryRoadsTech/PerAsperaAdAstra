@@ -1,4 +1,4 @@
-<%= form_with(model: satellite, local: true) do |form| %>
+<%= form_with(model: satellite, id: dom_id(satellite)) do |form| %>
   <% if satellite.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(satellite.errors.count, "error") %> prohibited this satellite from being saved:</h2>
@@ -32,26 +32,6 @@
   </div>
 
   <div class="field">
-    <%= form.label :country %>
-    <%= form.text_area :country %>
-  </div>
-
-  <div class="field">
-    <%= form.label :launch_time %>
-    <%= form.datetime_select :launch_time %>
-  </div>
-
-  <div class="field">
-    <%= form.label :launch_site %>
-    <%= form.text_area :launch_site %>
-  </div>
-
-  <div class="field">
-    <%= form.label :decay_time %>
-    <%= form.datetime_select :decay_time %>
-  </div>
-
-  <div class="field">
     <%= form.label :period %>
     <%= form.text_field :period %>
   </div>
@@ -69,16 +49,6 @@
   <div class="field">
     <%= form.label :perigee %>
     <%= form.text_field :perigee %>
-  </div>
-
-  <div class="field">
-    <%= form.label :radar_cross_section_size %>
-    <%= form.text_area :radar_cross_section_size %>
-  </div>
-
-  <div class="field">
-    <%= form.label :current %>
-    <%= form.text_area :current %>
   </div>
 
   <div class="actions">

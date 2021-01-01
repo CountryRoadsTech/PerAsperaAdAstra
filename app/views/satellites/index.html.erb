@@ -1,53 +1,10 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Satellites</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>International designator</th>
-      <th>Norad catalog</th>
-      <th>Object type</th>
-      <th>Country</th>
-      <th>Launch time</th>
-      <th>Launch site</th>
-      <th>Decay time</th>
-      <th>Period</th>
-      <th>Inclination</th>
-      <th>Apogee</th>
-      <th>Perigee</th>
-      <th>Radar cross section size</th>
-      <th>Current</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<%= turbo_frame_tag 'satellite_form' do %>
+  <%= render 'satellites/form', satellite: @satellite %>
+<% end %>
 
-  <tbody>
-    <% @satellites.each do |satellite| %>
-      <tr>
-        <td><%= satellite.name %></td>
-        <td><%= satellite.international_designator %></td>
-        <td><%= satellite.norad_catalog_id %></td>
-        <td><%= satellite.object_type %></td>
-        <td><%= satellite.country %></td>
-        <td><%= satellite.launch_time %></td>
-        <td><%= satellite.launch_site %></td>
-        <td><%= satellite.decay_time %></td>
-        <td><%= satellite.period %></td>
-        <td><%= satellite.inclination %></td>
-        <td><%= satellite.apogee %></td>
-        <td><%= satellite.perigee %></td>
-        <td><%= satellite.radar_cross_section_size %></td>
-        <td><%= satellite.current %></td>
-        <td><%= link_to 'Show', satellite %></td>
-        <td><%= link_to 'Edit', edit_satellite_path(satellite) %></td>
-        <td><%= link_to 'Destroy', satellite, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Satellite', new_satellite_path %>
+<%= turbo_stream_from 'satellites' %>
+<%= turbo_frame_tag 'satellites' do %>
+  <%= render @satellites %>
+<% end %>
