@@ -45,4 +45,6 @@ class Satellite < ApplicationRecord
   after_create_commit { broadcast_prepend_to 'satellites' }
   after_update_commit { broadcast_replace_to 'satellites' }
   after_destroy_commit { broadcast_remove_to 'satellites' }
+
+  validates :name, presence: true # Requires every satellite have a name.
 end
