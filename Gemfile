@@ -42,6 +42,9 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+
+  # Annotate automatically adds a comment to the top of relevant classes based on its current database schema.
+  gem 'annotate', '~> 3.1'
 end
 
 group :test do
