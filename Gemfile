@@ -41,6 +41,11 @@ group :development, :test do
   gem 'rubocop-rails', '~> 2.9', require: false
   gem 'rubocop-performance', '~> 1.9', require: false
   gem 'rubocop-rspec', '~> 2.1', require: false
+
+  # Pry is a console and IRB alternative.
+  gem 'pry', '~> 0.13'
+  gem 'pry-rails', '~> 0.3'
+  gem 'pry-byebug', '~> 3.9'
 end
 
 group :development do
