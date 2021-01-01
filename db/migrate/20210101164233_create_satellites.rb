@@ -8,7 +8,7 @@ class CreateSatellites < ActiveRecord::Migration[6.0]
 
       t.belongs_to :user
 
-      t.text :name
+      t.text :name, index: true, unique: true
       t.text :object_type
       t.integer :ordinal
       t.text :comment

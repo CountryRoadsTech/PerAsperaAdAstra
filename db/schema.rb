@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 2021_01_01_164233) do
     t.decimal "perigee"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_satellites_on_name"
     t.index ["user_id"], name: "index_satellites_on_user_id"
   end
 

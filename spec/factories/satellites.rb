@@ -35,6 +35,7 @@
 #
 # Indexes
 #
+#  index_satellites_on_name     (name)
 #  index_satellites_on_user_id  (user_id)
 #
 FactoryBot.define do
