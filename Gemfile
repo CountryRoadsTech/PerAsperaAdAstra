@@ -24,7 +24,11 @@ gem 'devise', '~> 4.7'
 # Pundit is used to provide user authorization.
 gem 'pundit', '~> 2.1'
 
+# Paper Trail is used to track and store changes to models in the database.
 gem 'paper_trail', '~> 11.1'
+
+# Faraday is used to interact with remote RESTful APIs.
+gem 'faraday', '~> 1.0'
 
 group :development, :test do
   # RSpec is used as a testing framework, replacing Rail's default.
