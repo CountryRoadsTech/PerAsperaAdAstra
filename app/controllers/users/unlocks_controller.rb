@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Users::UnlocksController < Devise::UnlocksController
+  skip_after_action :verify_authorized # Don't require user authorization to run when user authentication is running.
+
   # GET /resource/unlock/new
   # def new
   #   super
