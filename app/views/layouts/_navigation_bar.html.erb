@@ -1,0 +1,21 @@
+<div class="navbar">
+  <a href="/">Home</a>
+
+  <div class="dropdown">
+
+    <button class="dropbtn">My Account
+      <i class=""></i>
+    </button>
+    <div class="dropdown-content">
+      <% if current_user.nil? %>
+        <%= link_to 'Sign In', new_user_session_path %>
+        <%= link_to 'Sign Up', new_user_registration_path %>
+      <% else %>
+        <%= link_to 'Edit Profile', edit_user_registration_path %>
+        <%= link_to 'Logout', destroy_user_session_path, method: :delete  %>
+      <% end %>
+    </div>
+
+  </div>
+
+</div>

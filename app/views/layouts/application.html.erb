@@ -8,7 +8,7 @@
     <%= stylesheet_pack_tag 'application', media: 'all' %>
     <%= javascript_pack_tag 'application' %>
   </head>
-
+  <%= render 'layouts/navigation_bar' %>
   <body>
     <%= render 'layouts/notices_and_alerts' %>
     <%= yield %>
