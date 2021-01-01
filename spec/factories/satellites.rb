@@ -2,24 +2,36 @@
 #
 # Table name: satellites
 #
-#  id                       :uuid             not null, primary key
-#  apogee                   :decimal(, )
-#  country                  :text
-#  current                  :text
-#  decay_time               :datetime
-#  inclination              :decimal(, )
-#  international_designator :text
-#  launch_site              :text
-#  launch_time              :datetime
-#  name                     :text
-#  object_type              :text
-#  perigee                  :decimal(, )
-#  period                   :decimal(, )
-#  radar_cross_section_size :text
-#  created_at               :datetime         not null
-#  updated_at               :datetime         not null
-#  norad_catalog_id         :bigint
-#  user_id                  :bigint
+#  id                                :uuid             not null, primary key
+#  apogee                            :decimal(, )
+#  argument_of_pericenter            :decimal(, )
+#  b_star                            :decimal(, )
+#  comment                           :text
+#  decayed                           :boolean          default(FALSE)
+#  eccentricity                      :decimal(, )
+#  element_set_number                :integer
+#  ephemeris_type                    :integer
+#  epoch                             :datetime
+#  epoch_microseconds                :decimal(, )
+#  inclination                       :decimal(, )
+#  international_designator          :text
+#  mean_anomaly                      :decimal(, )
+#  mean_motion                       :decimal(, )
+#  mean_motion_ddot                  :decimal(, )
+#  mean_motion_dot                   :decimal(, )
+#  name                              :text
+#  object_type                       :text
+#  ordinal                           :integer
+#  originator                        :text
+#  perigee                           :decimal(, )
+#  period                            :decimal(, )
+#  revolution_at_epoch               :integer
+#  right_ascension_of_ascending_node :decimal(, )
+#  semimajor_axis                    :decimal(, )
+#  created_at                        :datetime         not null
+#  updated_at                        :datetime         not null
+#  norad_catalog_id                  :text
+#  user_id                           :bigint
 #
 # Indexes
 #
