@@ -21,6 +21,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 # Devise is used to provide user authentication.
 gem 'devise', '~> 4.7'
+# Pundit is used to provide user authorization.
+gem 'pundit', '~> 2.1'
 
 group :development, :test do
   # RSpec is used as a testing framework, replacing Rail's default.
