@@ -32,6 +32,9 @@
 #                                       POST   /users/unlock(.:format)                                                                  users/unlocks#create
 #                                  home GET    /home(.:format)                                                                          pages#home
 #                                  root GET    /                                                                                        pages#home
+#      turbo_recede_historical_location GET    /recede_historical_location(.:format)                                                    turbo/native/navigation#recede
+#      turbo_resume_historical_location GET    /resume_historical_location(.:format)                                                    turbo/native/navigation#resume
+#     turbo_refresh_historical_location GET    /refresh_historical_location(.:format)                                                   turbo/native/navigation#refresh
 #         rails_postmark_inbound_emails POST   /rails/action_mailbox/postmark/inbound_emails(.:format)                                  action_mailbox/ingresses/postmark/inbound_emails#create
 #            rails_relay_inbound_emails POST   /rails/action_mailbox/relay/inbound_emails(.:format)                                     action_mailbox/ingresses/relay/inbound_emails#create
 #         rails_sendgrid_inbound_emails POST   /rails/action_mailbox/sendgrid/inbound_emails(.:format)                                  action_mailbox/ingresses/sendgrid/inbound_emails#create

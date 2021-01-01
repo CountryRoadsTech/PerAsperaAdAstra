@@ -1,3 +1,14 @@
 <%= turbo_frame_tag dom_id(satellite) do %>
-  <h2>Name: <%= satellite.name %></h2>
+
+  <div class="card">
+    <div class="container">
+      <h2>Name: <%= satellite.name %></h2>
+      <hr>
+      <p><b>Object Type:</b> <%= satellite.object_type %></p>
+      <p><b>Comment:</b> <%= satellite.comment %></p>
+      <p><b>Source:</b> <%= satellite.originator %></p>
+      <p><small><b>NORAD Catalog ID:</b> <%= satellite.norad_catalog_id %> <b>UUID:</b> <%= satellite.id %></small></p>
+    </div>
+  </div>
+
 <% end %>
