@@ -24,6 +24,8 @@ gem 'devise', '~> 4.7'
 # Pundit is used to provide user authorization.
 gem 'pundit', '~> 2.1'
 
+gem 'paper_trail', '~> 11.1'
+
 group :development, :test do
   # RSpec is used as a testing framework, replacing Rail's default.
   gem 'rspec-rails', '~> 4.0.2'
