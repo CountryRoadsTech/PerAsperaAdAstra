@@ -24,6 +24,11 @@ group :development, :test do
   gem 'rspec-rails', '~> 4.0.2'
   # Factory Bot is used to create test factories, replacing Rail's default.
   gem 'factory_bot_rails', '~> 6.1'
+
+  # Rubocop, and its associated cops, are static Ruby code analyzers and code formatters.
+  gem 'rubocop', '~> 1.7', require: false
+  gem 'rubocop-rails', '~> 2.9', require: false
+  gem 'rubocop-rspec', '~> 2.1', require: false
 end
 
 group :development do
