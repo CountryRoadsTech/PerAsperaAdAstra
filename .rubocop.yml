@@ -2,3 +2,51 @@ require:
   - rubocop-rails
   - rubocop-performance
   - rubocop-rspec
+
+AllCops:
+  Exclude:
+    - '**/tmp/**/*'
+    - '**/templates/**/*'
+    - '**/vendor/**/*'
+    - '**/node_modules/**/*'
+    - 'bin/**/*'
+    - 'config/**/*'
+    - 'db/**/*'
+  Style/SymbolArray:
+    Enabled: false
+
+  Style/AndOr:
+    Enabled: false
+
+  Style/Not:
+    Enabled: false
+
+  Style/ClassAndModuleChildren:
+    Enabled: false
+
+  Rails/FilePath:
+    Enabled: false
+
+  Rails/CreateTableWithTimestamps:
+    Enabled: false
+
+  Bundler/OrderedGems:
+    Enabled: false
+
+  Metrics/BlockLength:
+    Enabled: false
+
+  Metrics/MethodLength:
+    Enabled: false
+
+  Metrics/AbcSize:
+    Enabled: false
+  Metrics/PerceivedComplexity:
+    Enabled: false
+
+  Metrics/CyclomaticComplexity:
+    Enabled: false
+
+  Layout/LineLength:
+    Exclude:
+      - config/routes.rb
