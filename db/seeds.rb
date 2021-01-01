@@ -62,47 +62,53 @@ end
 # Convert the space-track.org satellite data and store it in the local database.
 ####################################################################################################
 
-transform_keys_hash = {
-  "ORDINAL"=>"1",
-  "COMMENT"=>"GENERATED VIA SPACETRACK.ORG API",
-  "ORIGINATOR"=>"18 SPCS",
-  "NORAD_CAT_ID"=>"44235",
-  "OBJECT_NAME"=>"STARLINK-31",
-  "OBJECT_TYPE"=>"PAYLOAD",
-  "CLASSIFICATION_TYPE"=>"U",
-  "INTLDES"=>"19029A",
-  "EPOCH"=>"2020-10-01 07:31:19",
-  "EPOCH_MICROSECONDS"=>"437888",
-  "MEAN_MOTION"=>"16.46847225",
-  "ECCENTRICITY"=>"0.0009041",
-  "INCLINATION"=>"52.9736",
-  "RA_OF_ASC_NODE"=>"36.3928",
-  "ARG_OF_PERICENTER"=>"295.9879",
-  "MEAN_ANOMALY"=>"160.3065",
-  "EPHEMERIS_TYPE"=>"0",
-  "ELEMENT_SET_NO"=>"999",
-  "REV_AT_EPOCH"=>"7697",
-  "BSTAR"=>"0.00018159",
-  "MEAN_MOTION_DOT"=>"0.09808971",
-  "MEAN_MOTION_DDOT"=>"0.000012623",
-  "FILE"=>"2839167",
-  "TLE_LINE0"=>"0 STARLINK-31",
-  "TLE_LINE1"=>"1 44235U 19029A   20275.31341942  .09808971  12623-4  18159-3 0  9999",
-  "TLE_LINE2"=>"2 44235  52.9736  36.3928 0009041 295.9879 160.3065 16.46847225 76971",
-  "OBJECT_ID"=>"2019-029A",
-  "OBJECT_NUMBER"=>"44235",
-  "SEMIMAJOR_AXIS"=>"6525.788",
-  "PERIOD"=>"87.439",
-  "APOGEE"=>"153.553",
-  "PERIGEE"=>"141.753",
-  "DECAYED"=>"1"
+transform_keys = {
+  "ORDINAL"=>"ordinal",
+  "COMMENT"=>"comment",
+  "ORIGINATOR"=>"originator",
+  "NORAD_CAT_ID"=>"norad_catalog_id",
+  "OBJECT_NAME"=>"name",
+  "OBJECT_TYPE"=>"object_type",
+  "INTLDES"=>"international_designator",
+  "EPOCH"=>"epoch",
+  "EPOCH_MICROSECONDS"=>"epoch_microseconds",
+  "MEAN_MOTION"=>"mean_motion",
+  "ECCENTRICITY"=>"eccentricity",
+  "INCLINATION"=>"inclination",
+  "RA_OF_ASC_NODE"=>"right_ascension_of_ascending_node",
+  "ARG_OF_PERICENTER"=>"argument_of_pericenter",
+  "MEAN_ANOMALY"=>"mean_anomaly",
+  "EPHEMERIS_TYPE"=>"ephemeris_type",
+  "ELEMENT_SET_NO"=>"element_set_number",
+  "REV_AT_EPOCH"=>"revolution_at_epoch",
+  "BSTAR"=>"b_star",
+  "MEAN_MOTION_DOT"=>"mean_motion_dot",
+  "MEAN_MOTION_DDOT"=>"mean_motion_ddot",
+  "SEMIMAJOR_AXIS"=>"semimajor_axis",
+  "PERIOD"=>"period",
+  "APOGEE"=>"apogee",
+  "PERIGEE"=>"perigee",
+  "DECAYED"=>"decayed"
 }
+REMOVE_KEYS = [
+  "CLASSIFICATION_TYPE",
+  "TLE_LINE0",
+  "TLE_LINE1",
+  "TLE_LINE2",
+  "FILE",
+  "OBJECT_ID",
+  "OBJECT_NUMBER"
+]
+
 request_data = JSON.parse(starlink_request.body) # Convert the response data to JSON.
 
 request_data.each do |datum|
   transformed_keys_datum = datum.transform_keys do |key|
-    transform_keys_hash[key]
+    transform_keys[key]
   end
+  transformed_keys_datum.except!(REMOVE_KEYS) # Remove all the keys from the REMOVE_KEYS array.
+  transformed_keys_datum.merge!(user: user) # Add the current user as the creator of the satellite.
+  transformed_keys_datum.delete(nil) # Remove any nil valued keys from the data.
 
-  Satellite.create!(transformed_keys_datum.merge(user_id: user.id))
+  Satellite.create!(transformed_keys_datum)
 end
