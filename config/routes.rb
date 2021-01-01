@@ -1,3 +1,12 @@
+# For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  # Adds routes for static HTML pages not backed by a database model.
+  controller :pages do
+    # /home
+    get :home
+  end
+
+  # Sets the website's homepage, /, to /home.
+  root 'pages#home'
 end
