@@ -1,57 +1,60 @@
-<%= form_with(model: satellite, id: dom_id(satellite)) do |form| %>
-  <% if satellite.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(satellite.errors.count, "error") %> prohibited this satellite from being saved:</h2>
+<fieldset>
+  <legend>Create New Satellite</legend>
+  <%= form_with(model: satellite, id: dom_id(satellite)) do |form| %>
+    <% if satellite.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(satellite.errors.count, "error") %> prohibited this satellite from being saved:</h2>
 
-      <ul>
-        <% satellite.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% satellite.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :name %>
+      <%= form.text_area :name %>
+    </div>
+
+    <div class="field">
+      <%= form.label :international_designator %>
+      <%= form.text_area :international_designator %>
+    </div>
+
+    <div class="field">
+      <%= form.label :norad_catalog_id %>
+      <%= form.text_field :norad_catalog_id %>
+    </div>
+
+    <div class="field">
+      <%= form.label :object_type %>
+      <%= form.text_area :object_type %>
+    </div>
+
+    <div class="field">
+      <%= form.label :period %>
+      <%= form.text_field :period %>
+    </div>
+
+    <div class="field">
+      <%= form.label :inclination %>
+      <%= form.text_field :inclination %>
+    </div>
+
+    <div class="field">
+      <%= form.label :apogee %>
+      <%= form.text_field :apogee %>
+    </div>
+
+    <div class="field">
+      <%= form.label :perigee %>
+      <%= form.text_field :perigee %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_area :name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :international_designator %>
-    <%= form.text_area :international_designator %>
-  </div>
-
-  <div class="field">
-    <%= form.label :norad_catalog_id %>
-    <%= form.text_field :norad_catalog_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :object_type %>
-    <%= form.text_area :object_type %>
-  </div>
-
-  <div class="field">
-    <%= form.label :period %>
-    <%= form.text_field :period %>
-  </div>
-
-  <div class="field">
-    <%= form.label :inclination %>
-    <%= form.text_field :inclination %>
-  </div>
-
-  <div class="field">
-    <%= form.label :apogee %>
-    <%= form.text_field :apogee %>
-  </div>
-
-  <div class="field">
-    <%= form.label :perigee %>
-    <%= form.text_field :perigee %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</fieldset>

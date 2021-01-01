@@ -1,9 +1,7 @@
-<h1>Satellites</h1>
-
 <%= turbo_frame_tag 'satellite_form' do %>
   <%= render 'satellites/form', satellite: @satellite %>
 <% end %>
-
+<h1>Satellites</h1>
 <%= turbo_stream_from 'satellites' %>
 <%= turbo_frame_tag 'satellites' do %>
   <%= render @satellites %>
