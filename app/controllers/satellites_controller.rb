@@ -4,27 +4,29 @@ class SatellitesController < ApplicationController
   # GET /satellites
   # GET /satellites.json
   def index
-    @satellites = Satellite.all
+    @satellites = authorize Satellite.all
   end
 
   # GET /satellites/1
   # GET /satellites/1.json
   def show
+    authorize @satellite
   end
 
   # GET /satellites/new
   def new
-    @satellite = Satellite.new
+    @satellite = authorize Satellite.new
   end
 
   # GET /satellites/1/edit
   def edit
+    authorize @satellite
   end
 
   # POST /satellites
   # POST /satellites.json
   def create
-    @satellite = Satellite.new(satellite_params)
+    @satellite = authorize Satellite.new(satellite_params)
 
     respond_to do |format|
       if @satellite.save
@@ -40,6 +42,8 @@ class SatellitesController < ApplicationController
   # PATCH/PUT /satellites/1
   # PATCH/PUT /satellites/1.json
   def update
+    authorize @satellite
+    
     respond_to do |format|
       if @satellite.update(satellite_params)
         format.html { redirect_to @satellite, notice: 'Satellite was successfully updated.' }
@@ -54,6 +58,7 @@ class SatellitesController < ApplicationController
   # DELETE /satellites/1
   # DELETE /satellites/1.json
   def destroy
+    authorize @satellite
     @satellite.destroy
     respond_to do |format|
       format.html { redirect_to satellites_url, notice: 'Satellite was successfully destroyed.' }
@@ -69,6 +74,6 @@ class SatellitesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def satellite_params
-      params.require(:satellite).permit(:name, :created_by, :international_designator, :norad_catalog_id, :object_type, :country, :launch_time, :launch_site, :decay_time, :period, :inclination, :apogee, :perigee, :radar_cross_section_size, :current)
+      params.require(:satellite).permit(:name, :belongs_to, :international_designator, :norad_catalog_id, :object_type, :country, :launch_time, :launch_site, :decay_time, :period, :inclination, :apogee, :perigee, :radar_cross_section_size, :current)
     end
 end

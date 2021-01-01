@@ -1,4 +1,4 @@
-class SatelittePolicy < ApplicationPolicy
+class SatellitePolicy < ApplicationPolicy
   def index?
     true
   end
