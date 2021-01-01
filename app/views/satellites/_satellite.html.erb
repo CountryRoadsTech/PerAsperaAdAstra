@@ -3,6 +3,8 @@
   <div class="card">
     <div class="container">
       <h2>Name: <%= satellite.name %></h2>
+      <%= link_to 'Edit', edit_satellite_path(satellite) %>
+      <%= link_to 'Delete', satellite, method: :delete, data: { confirm: "Are you sure?" } %>
       <hr>
       <p><b>Object Type:</b> <%= satellite.object_type %></p>
       <p><b>Comment:</b> <%= satellite.comment %></p>
