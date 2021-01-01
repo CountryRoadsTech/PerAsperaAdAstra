@@ -19,6 +19,9 @@ gem 'image_processing', '~> 1.2'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
+# Devise is used to provide user authentication.
+gem 'devise', '~> 4.7'
+
 group :development, :test do
   # RSpec is used as a testing framework, replacing Rail's default.
   gem 'rspec-rails', '~> 4.0.2'
