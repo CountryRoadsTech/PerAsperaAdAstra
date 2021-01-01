@@ -3,5 +3,6 @@ class PagesController < ApplicationController
   # GET /
   # GET /home
   def home
+    authorize :pages, :home? # Ensure the user is allowed to perform this action.
   end
 end
