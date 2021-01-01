@@ -1,0 +1,15 @@
+/* The grid: Three equal columns that floats next to each other */
+.col {
+  float: left;
+  width: 45.0%;
+  padding: 2.5%;
+  text-align: center;
+  cursor: pointer;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}

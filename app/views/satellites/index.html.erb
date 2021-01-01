@@ -1,8 +1,14 @@
-<%= turbo_frame_tag 'satellite_form' do %>
-  <%= render 'satellites/form', satellite: @satellite %>
-<% end %>
-<h1>Satellites</h1>
-<%= turbo_stream_from 'satellites' %>
-<%= turbo_frame_tag 'satellites' do %>
-  <%= render @satellites %>
-<% end %>
+<div class="row">
+  <div class="col">
+    <h1>Satellites</h1>
+    <%= turbo_stream_from 'satellites' %>
+    <%= turbo_frame_tag 'satellites' do %>
+      <%= render @satellites %>
+    <% end %>
+  </div>
+  <div class="col">
+    <%= turbo_frame_tag 'satellite_form' do %>
+      <%= render 'satellites/form', satellite: @satellite %>
+    <% end %>
+  </div>
+</div>
