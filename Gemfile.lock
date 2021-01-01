@@ -192,7 +192,7 @@ GEM
     responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
-    rexml (3.2.3)
+    rexml (3.2.4)
     rspec-core (3.10.1)
       rspec-support (~> 3.10.0)
     rspec-expectations (3.10.1)
@@ -252,6 +252,8 @@ GEM
       sprockets (>= 3.0.0)
     thor (1.0.1)
     thread_safe (0.3.6)
+    turbo-rails (0.5.2)
+      rails (>= 6.0.0)
     tzinfo (1.2.9)
       thread_safe (~> 0.1)
     unicode-display_width (1.7.0)
@@ -298,6 +300,7 @@ DEPENDENCIES
   selenium-webdriver (~> 3.142)
   spring
   spring-watcher-listen (~> 2.0.0)
+  turbo-rails (~> 0.5)
   tzinfo-data
   webpacker (~> 4.0)
 

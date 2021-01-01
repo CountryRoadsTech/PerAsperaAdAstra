@@ -24,6 +24,9 @@ gem 'devise', '~> 4.7'
 # Pundit is used to provide user authorization.
 gem 'pundit', '~> 2.1'
 
+# Hotwire, Turbo, and Stimulus provides live and reactive HTML over the wire through action cable.
+gem 'turbo-rails', '~> 0.5'
+
 # Paper Trail is used to track and store changes to models in the database.
 gem 'paper_trail', '~> 11.1'
 
