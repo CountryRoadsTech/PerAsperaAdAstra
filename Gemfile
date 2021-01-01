@@ -20,7 +20,9 @@ gem 'image_processing', '~> 1.2'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
+  # RSpec is used as a testing framework, replacing Rail's default.
   gem 'rspec-rails', '~> 4.0.2'
+  # Factory Bot is used to create test factories, replacing Rail's default.
   gem 'factory_bot_rails', '~> 6.1'
 end
 
@@ -32,7 +34,9 @@ group :development do
 end
 
 group :test do
+  # Capybara is used to write and run tests using Javascript from a user's perspective.
   gem 'capybara', '~> 3.34'
+  # Selenium Webdriver is a Javascript driver used by Capybara to render the tests.
   gem 'selenium-webdriver', '~> 3.142'
 end
 
