@@ -1,6 +1,14 @@
 <h1>Editing Satellite</h1>
 
-<%= render 'form', satellite: @satellite %>
+<%= turbo_frame_tag dom_id(@satellite) do %>
+
+  <div class="card">
+    <div class="container">
+      <%= render 'form', satellite: @satellite %>
+    </div>
+  </div>
+
+<% end %>
 
 <%= link_to 'Show', @satellite %> |
-<%= link_to 'Back', satellites_path %>
+<%= link_to 'Back', :back %>
