@@ -1,44 +1,6 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @satellite.name %>
-</p>
-
-<p>
-  <strong>International designator:</strong>
-  <%= @satellite.international_designator %>
-</p>
-
-<p>
-  <strong>Norad catalog:</strong>
-  <%= @satellite.norad_catalog_id %>
-</p>
-
-<p>
-  <strong>Object type:</strong>
-  <%= @satellite.object_type %>
-</p>
-
-<p>
-  <strong>Period:</strong>
-  <%= @satellite.period %>
-</p>
-
-<p>
-  <strong>Inclination:</strong>
-  <%= @satellite.inclination %>
-</p>
-
-<p>
-  <strong>Apogee:</strong>
-  <%= @satellite.apogee %>
-</p>
-
-<p>
-  <strong>Perigee:</strong>
-  <%= @satellite.perigee %>
-</p>
+<%= turbo_frame_tag dom_id(@satellite) do %>
+  <%= render @satellite %>
+<% end %>
 
 <%= link_to 'Edit', edit_satellite_path(@satellite) %> |
 <%= link_to 'Back', satellites_path %>
