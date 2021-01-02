@@ -22,13 +22,8 @@ import "../stylesheets/application.scss"
 
 import "@hotwired/turbo-rails"
 
-// Import and load the 3d rendering canvas.
+// Import the 3d rendering canvas.
 import * as THREE from 'three';
-const scene = new THREE.Scene();
-
-// Use 3D orbit controls to move the camera around.
-//import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-//const controls = new OrbitControls();
 
 // Check if WebGL is available on the local device.
 const {WEBGL} = require("three/examples/jsm/WebGL");
@@ -41,5 +36,20 @@ if (WEBGL.isWebGLAvailable()) {
     // Wait for the turbo frame to finish loading
     window.addEventListener('turbo:load', function () {
         document.getElementById('canvas_container').appendChild(warning);
-    })
+    });
 }
+
+// Load the 3d scene on the canvas.
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+
+const renderer = new THREE.WebGLRenderer();
+renderer.setSize( window.innerWidth, window.innerHeight );
+
+window.addEventListener('turbo:load', function () {
+    document.body.appendChild( renderer.domElement );
+});
+
+// Use 3D orbit controls to move the camera around.
+//import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+//const controls = new OrbitControls();
