@@ -87,5 +87,5 @@ Rails.application.routes.draw do
   end
 
   # Sets the website's homepage, /, to /home.
-  root 'pages#home'
+  root 'satellites#index'
 end
