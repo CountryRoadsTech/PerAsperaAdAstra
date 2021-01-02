@@ -12,11 +12,10 @@ require 'json'
 # Create an admin user
 ####################################################################################################
 
-user = User.new(email: 'email@example.com', password: 'password', password_confirmation: 'password')
+user = User.new(email: 'basicexample@countryroads.tech', password: 'password', password_confirmation: 'password')
 user.skip_confirmation!
 user.admin = true
-
-user.save
+user.save!
 
 ####################################################################################################
 # Login to space-track.org, and store the returned cookie.
@@ -62,7 +61,7 @@ end
 # Convert the space-track.org satellite data and store it in the local database.
 ####################################################################################################
 
-transform_keys = {
+LOCALIZE_KEYS = {
   "ORDINAL"=>"ordinal",
   "COMMENT"=>"comment",
   "ORIGINATOR"=>"originator",
@@ -89,8 +88,8 @@ transform_keys = {
   "APOGEE"=>"apogee",
   "PERIGEE"=>"perigee",
   "DECAYED"=>"decayed"
-}
-REMOVE_KEYS = [
+}.freeze
+KEYS_TO_REMOVE = [
   "CLASSIFICATION_TYPE",
   "TLE_LINE0",
   "TLE_LINE1",
@@ -98,17 +97,40 @@ REMOVE_KEYS = [
   "FILE",
   "OBJECT_ID",
   "OBJECT_NUMBER"
-]
+].freeze
+ORBIT_KEYS_REFERENCE = %w[epoch epoch_microseconds mean_motion eccentricity inclination right_ascension_of_ascending_node argument_of_pericenter mean_anomaly revolution_at_epoch b_star mean_motion_dot mean_motion_ddot semimajor_axis period apogee perigee].freeze
+SATELLITE_KEYS_REFERENCE = %w[originator]
 
 request_data = JSON.parse(starlink_request.body) # Convert the response data to JSON.
-
 request_data.each do |datum|
-  transformed_keys_datum = datum.transform_keys do |key|
-    transform_keys[key]
-  end
-  transformed_keys_datum.except!(REMOVE_KEYS) # Remove all the keys from the REMOVE_KEYS array.
-  transformed_keys_datum.merge!(user: user) # Add the current user as the creator of the satellite.
-  transformed_keys_datum.delete(nil) # Remove any nil valued keys from the data.
 
-  Satellite.create!(transformed_keys_datum)
+  data = datum.except!(KEYS_TO_REMOVE) # Remove all the keys from the KEYS_TO_REMOVE array.
+  data.transform_keys! do |key|
+    LOCALIZE_KEYS[key]
+  end
+  data.delete(nil) # Remove any nil valued keys from the keys.
+
+  satellite_data = {}
+  orbit_data = {}
+  data.each do |key, value|
+    if ORBIT_KEYS_REFERENCE.include?(key)
+      orbit_data[key] = value
+    elsif KEYS_TO_REMOVE.include?(key)
+      # continue
+    else
+      satellite_data[key] = value
+    end
+  end
+
+  orbit_data["name"] = data["name"]
+  orbit_data["user_id"] = user.id
+  orbit = Orbit.create(orbit_data)
+  orbit.user = user
+
+  satellite = Satellite.create(satellite_data)
+  satellite.user = user
+  satellite.orbit = orbit
+
+  orbit.save!
+  satellite.save!
 end

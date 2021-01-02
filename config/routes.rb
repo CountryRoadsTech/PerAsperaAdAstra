@@ -1,6 +1,14 @@
 # == Route Map
 #
 #                                Prefix Verb   URI Pattern                                                                              Controller#Action
+#                                orbits GET    /orbits(.:format)                                                                        orbits#index
+#                                       POST   /orbits(.:format)                                                                        orbits#create
+#                             new_orbit GET    /orbits/new(.:format)                                                                    orbits#new
+#                            edit_orbit GET    /orbits/:id/edit(.:format)                                                               orbits#edit
+#                                 orbit GET    /orbits/:id(.:format)                                                                    orbits#show
+#                                       PATCH  /orbits/:id(.:format)                                                                    orbits#update
+#                                       PUT    /orbits/:id(.:format)                                                                    orbits#update
+#                                       DELETE /orbits/:id(.:format)                                                                    orbits#destroy
 #                            satellites GET    /satellites(.:format)                                                                    satellites#index
 #                                       POST   /satellites(.:format)                                                                    satellites#create
 #                         new_satellite GET    /satellites/new(.:format)                                                                satellites#new
@@ -59,6 +67,7 @@
 # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 Rails.application.routes.draw do
 
+  resources :orbits
   # Adds RESTful routes for satellites.
   resources :satellites
 

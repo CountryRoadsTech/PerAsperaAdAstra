@@ -1,0 +1,117 @@
+<%= form_with(model: orbit, local: true) do |form| %>
+  <% if orbit.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(orbit.errors.count, "error") %> prohibited this orbit from being saved:</h2>
+
+      <ul>
+        <% orbit.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :satellites_id %>
+    <%= form.text_field :satellites_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_area :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :comment %>
+    <%= form.text_area :comment %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :epoch %>
+    <%= form.datetime_select :epoch %>
+  </div>
+
+  <div class="field">
+    <%= form.label :epoch_microseconds %>
+    <%= form.text_field :epoch_microseconds %>
+  </div>
+
+  <div class="field">
+    <%= form.label :mean_motion %>
+    <%= form.text_field :mean_motion %>
+  </div>
+
+  <div class="field">
+    <%= form.label :eccentricity %>
+    <%= form.text_field :eccentricity %>
+  </div>
+
+  <div class="field">
+    <%= form.label :inclination %>
+    <%= form.text_field :inclination %>
+  </div>
+
+  <div class="field">
+    <%= form.label :right_ascension_of_ascending_node %>
+    <%= form.text_field :right_ascension_of_ascending_node %>
+  </div>
+
+  <div class="field">
+    <%= form.label :argument_of_pericenter %>
+    <%= form.text_field :argument_of_pericenter %>
+  </div>
+
+  <div class="field">
+    <%= form.label :mean_anomaly %>
+    <%= form.text_field :mean_anomaly %>
+  </div>
+
+  <div class="field">
+    <%= form.label :revolution_at_epoch %>
+    <%= form.number_field :revolution_at_epoch %>
+  </div>
+
+  <div class="field">
+    <%= form.label :b_star %>
+    <%= form.text_field :b_star %>
+  </div>
+
+  <div class="field">
+    <%= form.label :mean_motion_dot %>
+    <%= form.text_field :mean_motion_dot %>
+  </div>
+
+  <div class="field">
+    <%= form.label :mean_motino_ddot %>
+    <%= form.text_field :mean_motino_ddot %>
+  </div>
+
+  <div class="field">
+    <%= form.label :semimajor_axis %>
+    <%= form.text_field :semimajor_axis %>
+  </div>
+
+  <div class="field">
+    <%= form.label :period %>
+    <%= form.text_field :period %>
+  </div>
+
+  <div class="field">
+    <%= form.label :apogee %>
+    <%= form.text_field :apogee %>
+  </div>
+
+  <div class="field">
+    <%= form.label :perigee %>
+    <%= form.text_field :perigee %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

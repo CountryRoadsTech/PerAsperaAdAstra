@@ -40,4 +40,5 @@ class User < ApplicationRecord
   has_paper_trail # Tracks changes to this model.
 
   has_many :satellites, inverse_of: :user
+  has_many :orbits, inverse_of: :user
 end

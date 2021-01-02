@@ -10,22 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_01_164233) do
+ActiveRecord::Schema.define(version: 2021_01_02_002438) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
 
-  create_table "satellites", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.text "norad_catalog_id"
-    t.text "international_designator"
-    t.bigint "user_id"
+  create_table "orbits", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.text "name"
-    t.text "object_type"
-    t.integer "ordinal"
     t.text "comment"
-    t.text "originator"
-    t.boolean "decayed", default: false
+    t.bigint "user_id", null: false
+    t.integer "ordinal"
     t.datetime "epoch"
     t.decimal "epoch_microseconds"
     t.decimal "mean_motion"
@@ -34,8 +29,6 @@ ActiveRecord::Schema.define(version: 2021_01_01_164233) do
     t.decimal "right_ascension_of_ascending_node"
     t.decimal "argument_of_pericenter"
     t.decimal "mean_anomaly"
-    t.integer "ephemeris_type"
-    t.integer "element_set_number"
     t.integer "revolution_at_epoch"
     t.decimal "b_star"
     t.decimal "mean_motion_dot"
@@ -44,6 +37,24 @@ ActiveRecord::Schema.define(version: 2021_01_01_164233) do
     t.decimal "period"
     t.decimal "apogee"
     t.decimal "perigee"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_orbits_on_user_id"
+  end
+
+  create_table "satellites", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.text "norad_catalog_id"
+    t.text "international_designator"
+    t.bigint "user_id", null: false
+    t.uuid "orbit_id", null: false
+    t.boolean "decayed", default: false
+    t.text "name"
+    t.text "object_type"
+    t.integer "ordinal"
+    t.text "comment"
+    t.text "originator"
+    t.integer "ephemeris_type"
+    t.integer "element_set_number"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["name"], name: "index_satellites_on_name"
@@ -88,4 +99,6 @@ ActiveRecord::Schema.define(version: 2021_01_01_164233) do
     t.index ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
   end
 
+  add_foreign_key "orbits", "users"
+  add_foreign_key "satellites", "users"
 end

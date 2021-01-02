@@ -1,0 +1,104 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Satellites:</strong>
+  <%= @orbit.satellites_id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @orbit.name %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @orbit.comment %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @orbit.user_id %>
+</p>
+
+<p>
+  <strong>Epoch:</strong>
+  <%= @orbit.epoch %>
+</p>
+
+<p>
+  <strong>Epoch microseconds:</strong>
+  <%= @orbit.epoch_microseconds %>
+</p>
+
+<p>
+  <strong>Mean motion:</strong>
+  <%= @orbit.mean_motion %>
+</p>
+
+<p>
+  <strong>Eccentricicty:</strong>
+  <%= @orbit.eccentricicty %>
+</p>
+
+<p>
+  <strong>Inclination:</strong>
+  <%= @orbit.inclination %>
+</p>
+
+<p>
+  <strong>Right ascension of ascending node:</strong>
+  <%= @orbit.right_ascension_of_ascending_node %>
+</p>
+
+<p>
+  <strong>Argument of pericenter:</strong>
+  <%= @orbit.argument_of_pericenter %>
+</p>
+
+<p>
+  <strong>Mean anomaly:</strong>
+  <%= @orbit.mean_anomaly %>
+</p>
+
+<p>
+  <strong>Revolution at epoch:</strong>
+  <%= @orbit.revolution_at_epoch %>
+</p>
+
+<p>
+  <strong>B star:</strong>
+  <%= @orbit.b_star %>
+</p>
+
+<p>
+  <strong>Mean motion dot:</strong>
+  <%= @orbit.mean_motion_dot %>
+</p>
+
+<p>
+  <strong>Mean motino ddot:</strong>
+  <%= @orbit.mean_motino_ddot %>
+</p>
+
+<p>
+  <strong>Semimajor axis:</strong>
+  <%= @orbit.semimajor_axis %>
+</p>
+
+<p>
+  <strong>Period:</strong>
+  <%= @orbit.period %>
+</p>
+
+<p>
+  <strong>Apogee:</strong>
+  <%= @orbit.apogee %>
+</p>
+
+<p>
+  <strong>Perigee:</strong>
+  <%= @orbit.perigee %>
+</p>
+
+<%= link_to 'Edit', edit_orbit_path(@orbit) %> |
+<%= link_to 'Back', orbits_path %>
