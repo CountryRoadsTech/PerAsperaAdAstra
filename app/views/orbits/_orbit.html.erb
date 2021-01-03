@@ -1,0 +1,16 @@
+<div class="card">
+  <div class="container">
+    <h2>Name: <%= orbit.name %></h2>
+    <h4>
+      <b>Comment:</b> <%= orbit.comment %>
+      <b>|</b>
+      <%= link_to 'Edit', edit_orbit_path(orbit) %>
+      <%= link_to 'Delete', orbit, method: :delete, data: { confirm: "Are you sure?" } %>
+    </h4>
+    <hr>
+    <p><b>Comment:</b> <%= orbit.comment %></p>
+    <p><b>Apogee:</b> <%= orbit.apogee %></p>
+    <p><b>Perigee:</b> <%= orbit.perigee %></p>
+    <p><b>Inclination:</b> <%= orbit.inclination %></p>
+  </div>
+</div>

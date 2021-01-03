@@ -15,7 +15,7 @@
       <p><small><b>NORAD Catalog ID:</b> <%= satellite.norad_catalog_id %></small></p>
       <p><small><b>International Designator:</b> <%= satellite.international_designator %></small></p>
 
-      <%= render 'orbits/orbit', orbit: @satellite.orbit %>
+      <%= render 'orbits/orbit', orbit: satellite.orbit %>
     </div>
   </div>
 

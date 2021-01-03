@@ -39,7 +39,7 @@
 #                           user_unlock GET    /users/unlock(.:format)                                                                  users/unlocks#show
 #                                       POST   /users/unlock(.:format)                                                                  users/unlocks#create
 #                                  home GET    /home(.:format)                                                                          pages#home
-#                                  root GET    /                                                                                        pages#home
+#                                  root GET    /                                                                                        satellites#index
 #      turbo_recede_historical_location GET    /recede_historical_location(.:format)                                                    turbo/native/navigation#recede
 #      turbo_resume_historical_location GET    /resume_historical_location(.:format)                                                    turbo/native/navigation#resume
 #     turbo_refresh_historical_location GET    /refresh_historical_location(.:format)                                                   turbo/native/navigation#refresh
