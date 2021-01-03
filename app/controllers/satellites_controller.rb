@@ -4,7 +4,7 @@ class SatellitesController < ApplicationController
   # GET /satellites
   # GET /satellites.json
   def index
-    @satellites = authorize Satellite.all
+    @satellites = authorize Satellite.includes(:orbit).all
     @satellite = authorize Satellite.new
   end
 
