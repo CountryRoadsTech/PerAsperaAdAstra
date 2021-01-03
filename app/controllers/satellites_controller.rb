@@ -46,7 +46,7 @@ class SatellitesController < ApplicationController
   # PATCH/PUT /satellites/1.json
   def update
     authorize @satellite
-    
+
     respond_to do |format|
       if @satellite.update(satellite_params)
         format.html { redirect_to @satellite, notice: 'Satellite was successfully updated.' }
