@@ -3,13 +3,19 @@
   <div class="card">
     <div class="container">
       <h2>Name: <%= satellite.name %></h2>
-      <%= link_to 'Edit', edit_satellite_path(satellite) %>
-      <%= link_to 'Delete', satellite, method: :delete, data: { confirm: "Are you sure?" } %>
+      <h4>
+        <b>Object Type:</b> <%= satellite.object_type %>
+        <b>|</b>
+        <%= link_to 'Edit', edit_satellite_path(satellite) %>
+        <%= link_to 'Delete', satellite, method: :delete, data: { confirm: "Are you sure?" } %>
+      </h4>
       <hr>
-      <p><b>Object Type:</b> <%= satellite.object_type %></p>
       <p><b>Comment:</b> <%= satellite.comment %></p>
       <p><b>Source:</b> <%= satellite.originator %></p>
-      <p><small><b>NORAD Catalog ID:</b> <%= satellite.norad_catalog_id %> <b>UUID:</b> <%= satellite.id %></small></p>
+      <p><small><b>NORAD Catalog ID:</b> <%= satellite.norad_catalog_id %></small></p>
+      <p><small><b>International Designator:</b> <%= satellite.international_designator %></small></p>
+
+      <%= render 'orbits/orbit', orbit: @satellite.orbit %>
     </div>
   </div>
 
