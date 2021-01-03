@@ -122,7 +122,7 @@ request_data.each do |datum|
     end
   end
 
-  orbit_data["name"] = data["name"]
+  orbit_data["name"] = "#{data["name"]}'s Orbit"
   orbit_data["user_id"] = user.id
   orbit = Orbit.create(orbit_data)
   orbit.user = user
