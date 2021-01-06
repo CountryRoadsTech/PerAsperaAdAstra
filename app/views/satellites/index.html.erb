@@ -5,14 +5,14 @@
 
     <%= turbo_stream_from 'satellites' %>
     <%= turbo_frame_tag 'satellites' do %>
-      <!%= render @satellites %>
+      <%= render @satellites %>
     <% end %>
 
   </div>
   <div class="col">
 
     <%= turbo_frame_tag 'satellite_form' do %>
-      <!%= render 'satellites/form', satellite: @satellite %>
+      <%= render 'satellites/form', satellite: @satellite %>
     <% end %>
 
     <div id="canvas_container"></div>
