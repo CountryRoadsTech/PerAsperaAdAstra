@@ -32,7 +32,6 @@ node_modules/
 # Ignore precompiled Javascript packs
 /public/packs
 /public/packs-test
-/public/assets
 
 # Ignore yarn files
 /yarn-error.log
