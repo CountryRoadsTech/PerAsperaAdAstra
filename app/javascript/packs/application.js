@@ -22,5 +22,8 @@ import "../stylesheets/application.scss"
 
 import "@hotwired/turbo-rails"
 
-//
+// The HTML canvas element and associated three.js 3D rendering elements to create a basic, skeleton scene.
 import '../source/rendering_canvas'
+
+// Load in to the scene the 3D models of Earth and the Moon.
+import '../source/load_models'

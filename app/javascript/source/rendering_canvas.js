@@ -1,6 +1,8 @@
 // Import the 3d rendering canvas.
 import * as THREE from 'three';
 
+import * as LOADER from './load_models';
+
 // Check if WebGL is available on the local device.
 const {WEBGL} = require("three/examples/jsm/WebGL");
 // If it is available, then load the render.
@@ -26,23 +28,27 @@ window.addEventListener('turbo:load', function () {
     document.body.appendChild( renderer.domElement );
 });
 
-// Add a cube.
-const geometry = new THREE.BoxGeometry();
-const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
-const cube = new THREE.Mesh( geometry, material );
-scene.add( cube );
+// Add a basic ambient light.
+const ambient_light = new THREE.AmbientLight( 0x404040 ); // soft white light
+scene.add( ambient_light );
 
-camera.position.z = 5;
+LOADER.load_model_into_scene(scene, "assets/Earth.glb")
+
+camera.position.x = 625;
+camera.lookAt( new THREE.Vector3(0, 0, 0) );
 
 // Use 3D orbit controls to move the camera around.
-//import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-//const controls = new OrbitControls();
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.screenSpacePanning = false;
+controls.maxPolarAngle = Math.PI / 2;
+
+
 
 function animate() {
     requestAnimationFrame( animate );
 
-    cube.rotation.x += 0.01;
-    cube.rotation.y += 0.01;
+    // Do animation stuff.
 
     renderer.render( scene, camera );
 }
