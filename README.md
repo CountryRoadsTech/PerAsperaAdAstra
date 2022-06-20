@@ -1,4 +1,4 @@
-![Continuous Integration](https://github.com/CountryRoadsTech/PerAsperaAdAstra/actions/workflows/continuous_integration/badge.svg)
+![Continuous Integration](https://github.com/CountryRoadsTech/PerAsperaAdAstra/actions/workflows/continuous_integration.yml/badge.svg)
 
 # Per Aspera Ad Astra - Through Hardship to the Stars!
 
