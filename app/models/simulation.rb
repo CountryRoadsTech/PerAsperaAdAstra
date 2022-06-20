@@ -21,6 +21,7 @@
 class Simulation < ApplicationRecord
   has_rich_text :description
   has_one :universe, inverse_of: :simulation, dependent: :destroy
+  has_many :physics_bodies, inverse_of: :simulation, dependent: :destroy
 
   accepts_nested_attributes_for :universe
 

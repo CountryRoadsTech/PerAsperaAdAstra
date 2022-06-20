@@ -1,0 +1,117 @@
+<div id="<%= dom_id physics_body %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Simulation:</strong>
+    <%= physics_body.simulation_id %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Name:</strong>
+    <%= physics_body.name %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Slug:</strong>
+    <%= physics_body.slug %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Description:</strong>
+    <%= physics_body.description %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Initial position x:</strong>
+    <%= physics_body.initial_position_x %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Initial position y:</strong>
+    <%= physics_body.initial_position_y %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Initial position z:</strong>
+    <%= physics_body.initial_position_z %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Initial velocity x:</strong>
+    <%= physics_body.initial_velocity_x %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Initial velocity y:</strong>
+    <%= physics_body.initial_velocity_y %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Initial velocity z:</strong>
+    <%= physics_body.initial_velocity_z %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Positions x:</strong>
+    <%= physics_body.positions_x %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Positions y:</strong>
+    <%= physics_body.positions_y %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Positions z:</strong>
+    <%= physics_body.positions_z %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Velocities x:</strong>
+    <%= physics_body.velocities_x %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Velocities y:</strong>
+    <%= physics_body.velocities_y %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Velocities z:</strong>
+    <%= physics_body.velocities_z %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Accelerations x:</strong>
+    <%= physics_body.accelerations_x %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Accelerations y:</strong>
+    <%= physics_body.accelerations_y %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Accelerations z:</strong>
+    <%= physics_body.accelerations_z %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Forces x:</strong>
+    <%= physics_body.forces_x %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Forces y:</strong>
+    <%= physics_body.forces_y %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Forces z:</strong>
+    <%= physics_body.forces_z %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this physics body", physics_body, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this physics body', edit_physics_body_path(physics_body), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>

@@ -23,8 +23,12 @@ require 'faker'
 FactoryBot.define do
   factory :simulation do
     name { "#{Faker::Science.unique.scientist}s Simulation" }
-    description { Faker::Lorem.paragraphs(number: 3) }
+    description { Faker::Lorem.paragraphs(number: 3).join("\n") }
     solver_method { 'Runge-Kutta 45 (RK45)' }
     universe
+
+    after :create do |simulation|
+      simulation.universe ||= create(:universe, simulation: simulation)
+    end
   end
 end

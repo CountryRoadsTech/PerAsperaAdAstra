@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_20_144609) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_20_160426) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -64,6 +64,35 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_20_144609) do
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
   end
 
+  create_table "physics_bodies", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "simulation_id", null: false
+    t.text "name", null: false
+    t.text "slug"
+    t.decimal "initial_position_x", null: false
+    t.decimal "initial_position_y", null: false
+    t.decimal "initial_position_z", null: false
+    t.decimal "initial_velocity_x", null: false
+    t.decimal "initial_velocity_y", null: false
+    t.decimal "initial_velocity_z", null: false
+    t.decimal "positions_x", default: [], array: true
+    t.decimal "positions_y", default: [], array: true
+    t.decimal "positions_z", default: [], array: true
+    t.decimal "velocities_x", default: [], array: true
+    t.decimal "velocities_y", default: [], array: true
+    t.decimal "velocities_z", default: [], array: true
+    t.decimal "accelerations_x", default: [], array: true
+    t.decimal "accelerations_y", default: [], array: true
+    t.decimal "accelerations_z", default: [], array: true
+    t.decimal "forces_x", default: [], array: true
+    t.decimal "forces_y", default: [], array: true
+    t.decimal "forces_z", default: [], array: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_physics_bodies_on_name", unique: true
+    t.index ["simulation_id"], name: "index_physics_bodies_on_simulation_id"
+    t.index ["slug"], name: "index_physics_bodies_on_slug", unique: true
+  end
+
   create_table "simulations", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.text "name", null: false
     t.text "slug"
@@ -90,5 +119,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_20_144609) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "physics_bodies", "simulations"
   add_foreign_key "universes", "simulations"
 end

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# This migration creates the Simulation table and attributes.
+# This migration creates the Universe table and attributes.
 class CreateUniverses < ActiveRecord::Migration[7.0]
   def change
     create_table :universes, id: :uuid do |t|

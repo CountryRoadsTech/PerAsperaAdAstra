@@ -28,7 +28,7 @@ RSpec.describe '/simulations', type: :request do
 
   describe 'GET /index' do
     it 'renders a successful response' do
-      Simulation.create! valid_attributes
+      create(:simulation)
       get simulations_url
       expect(response).to be_successful
     end
@@ -36,7 +36,7 @@ RSpec.describe '/simulations', type: :request do
 
   describe 'GET /show' do
     it 'renders a successful response' do
-      simulation = Simulation.create! valid_attributes
+      simulation = create(:simulation)
       get simulation_url(simulation)
       expect(response).to be_successful
     end
@@ -51,7 +51,7 @@ RSpec.describe '/simulations', type: :request do
 
   describe 'GET /edit' do
     it 'renders a successful response' do
-      simulation = Simulation.create! valid_attributes
+      simulation = create(:simulation)
       get edit_simulation_url(simulation)
       expect(response).to be_successful
     end
@@ -92,14 +92,14 @@ RSpec.describe '/simulations', type: :request do
       end
 
       it 'updates the requested simulation' do
-        simulation = Simulation.create! valid_attributes
+        simulation = create(:simulation)
         patch simulation_url(simulation), params: { simulation: new_attributes }
         simulation.reload
         skip('Add assertions for updated state')
       end
 
       it 'redirects to the simulation' do
-        simulation = Simulation.create! valid_attributes
+        simulation = create(:simulation)
         patch simulation_url(simulation), params: { simulation: new_attributes }
         simulation.reload
         expect(response).to redirect_to(simulation_url(simulation))
@@ -108,7 +108,7 @@ RSpec.describe '/simulations', type: :request do
 
     context 'with invalid parameters' do
       it 'renders a found status' do
-        simulation = Simulation.create! valid_attributes
+        simulation = create(:simulation)
         patch simulation_url(simulation), params: { simulation: invalid_attributes }
         expect(response).to have_http_status(:found)
       end
@@ -117,14 +117,14 @@ RSpec.describe '/simulations', type: :request do
 
   describe 'DELETE /destroy' do
     it 'destroys the requested simulation' do
-      simulation = Simulation.create! valid_attributes
+      simulation = create(:simulation)
       expect do
         delete simulation_url(simulation)
       end.to change(Simulation, :count).by(-1)
     end
 
     it 'redirects to the simulations list' do
-      simulation = Simulation.create! valid_attributes
+      simulation = create(:simulation)
       delete simulation_url(simulation)
       expect(response).to redirect_to(simulations_url)
     end
