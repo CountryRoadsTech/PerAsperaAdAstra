@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Enables the PostgreSQL PG Crypto extension, which is needed to use the UUID primary key type.
 class EnablePostgresUuids < ActiveRecord::Migration[7.0]
   def change

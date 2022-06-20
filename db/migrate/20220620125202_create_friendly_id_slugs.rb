@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 MIGRATION_CLASS =
   if ActiveRecord::VERSION::MAJOR >= 5
     ActiveRecord::Migration["#{ActiveRecord::VERSION::MAJOR}.#{ActiveRecord::VERSION::MINOR}"]
@@ -5,6 +7,7 @@ MIGRATION_CLASS =
     ActiveRecord::Migration
   end
 
+# This migration creates the history of slugs used by Friendly ID.
 class CreateFriendlyIdSlugs < MIGRATION_CLASS
   def change
     create_table :friendly_id_slugs do |t|
@@ -16,6 +19,7 @@ class CreateFriendlyIdSlugs < MIGRATION_CLASS
     end
     add_index :friendly_id_slugs, [:sluggable_type, :sluggable_id]
     add_index :friendly_id_slugs, [:slug, :sluggable_type], length: { slug: 140, sluggable_type: 50 }
-    add_index :friendly_id_slugs, [:slug, :sluggable_type, :scope], length: { slug: 70, sluggable_type: 50, scope: 70 }, unique: true
+    add_index :friendly_id_slugs, [:slug, :sluggable_type, :scope],
+              length: { slug: 70, sluggable_type: 50, scope: 70 }, unique: true
   end
 end
