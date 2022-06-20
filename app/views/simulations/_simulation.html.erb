@@ -1,0 +1,37 @@
+<div id="<%= dom_id simulation %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Name:</strong>
+    <%= simulation.name %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Slug:</strong>
+    <%= simulation.slug %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Description:</strong>
+    <%= simulation.description %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Solver method:</strong>
+    <%= simulation.solver_method %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Computation time:</strong>
+    <%= simulation.computation_time %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Computed at:</strong>
+    <%= simulation.computed_at %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this simulation", simulation, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this simulation', edit_simulation_path(simulation), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>
