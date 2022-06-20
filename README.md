@@ -1,24 +1,17 @@
-# README
+# Per Aspera Ad Astra - Through Hardship to the Stars!
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A Ruby on Rails application to calculate, visualize, and render videos of orbital mechanics.
 
-Things you may want to cover:
+ * Ruby 3+
 
-* Ruby version
+ * Ruby on Rails 7+
 
-* System dependencies
+ * Hotwire
 
-* Configuration
+ * StimulusJS
 
-* Database creation
+ * ThreeJS
 
-* Database initialization
+ * D3
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+ * GNU Scientific Library
