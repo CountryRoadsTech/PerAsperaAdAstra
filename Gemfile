@@ -51,9 +51,6 @@ group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri mingw x64_mingw]
 
-  # Annotate automatically adds a comment with the relevant database schema to the top of relevant Ruby files.
-  gem 'annotate'
-
   # Rubocop is used to enforce coding style through static analysis
   gem 'rubocop', require: false
   # Rubocop Rails adds Rails specific checks to Rubocop
@@ -67,6 +64,19 @@ group :development, :test do
 
   # Brakeman is used to detect security issues through static analysis
   gem 'brakeman'
+
+  # RSpec is used to replace the default testing framework
+  gem 'rspec-rails'
+  # Capybara is used to write integration/feature tests
+  gem 'capybara'
+  # Selenium Webdriver is used to simulate how a real user interacts with the web browser during testing
+  gem 'selenium-webdriver'
+  # Factory Bot is used to replace the default tests fixtures
+  gem 'factory_bot_rails'
+  # Shoulda Matchers adds many, common one-line RSpec test matchers
+  gem 'shoulda-matchers'
+  # Faker is used to generate pseudorandom test data
+  gem 'faker'
 end
 
 group :development do
@@ -78,4 +88,7 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+
+  # Annotate automatically adds a comment with the relevant database schema to the top of relevant Ruby files.
+  gem 'annotate'
 end
