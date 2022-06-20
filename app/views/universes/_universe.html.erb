@@ -1,0 +1,37 @@
+<div id="<%= dom_id universe %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Simulation:</strong>
+    <%= universe.simulation_id %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Start time:</strong>
+    <%= universe.start_time %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">End time:</strong>
+    <%= universe.end_time %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Timestep:</strong>
+    <%= universe.timestep %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Number of timesteps:</strong>
+    <%= universe.number_of_timesteps %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Timesteps:</strong>
+    <%= universe.timesteps %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this universe", universe, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this universe', edit_universe_path(universe), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>

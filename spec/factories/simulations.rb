@@ -25,5 +25,6 @@ FactoryBot.define do
     name { "#{Faker::Science.unique.scientist}s Simulation" }
     description { Faker::Lorem.paragraphs(number: 3) }
     solver_method { 'Runge-Kutta 45 (RK45)' }
+    universe
   end
 end

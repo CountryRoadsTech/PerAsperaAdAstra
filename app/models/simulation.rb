@@ -20,6 +20,9 @@
 #
 class Simulation < ApplicationRecord
   has_rich_text :description
+  has_one :universe, inverse_of: :simulation, dependent: :destroy
+
+  accepts_nested_attributes_for :universe
 
   validates :name, presence: true
   validates :name, uniqueness: true

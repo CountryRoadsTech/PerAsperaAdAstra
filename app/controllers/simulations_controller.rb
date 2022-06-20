@@ -73,6 +73,9 @@ class SimulationsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def simulation_params
-    params.require(:simulation).permit(:name, :slug, :description, :solver_method, :computation_time, :computed_at)
+    params.require(:simulation).permit(:name, :slug, :description, :solver_method, :computation_time, :computed_at,
+                                       universe_attributes: [
+                                         :simulation_id, :start_time, :end_time, :timestep, :number_of_timesteps
+                                       ])
   end
 end
