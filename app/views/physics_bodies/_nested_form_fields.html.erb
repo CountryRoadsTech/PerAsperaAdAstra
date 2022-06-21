@@ -1,0 +1,36 @@
+<div class='nested-fields border-grey border-2 rounded-lg px-2'>
+  <div class='form-group'>
+    <%= form.hidden_field :_destroy %>
+    <div class="my-5">
+      <%= form.label :name, 'Physics Body Name *' %>
+      <%= form.text_area :name, rows: 1, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+
+    <div class="my-5">
+      <%= form.label :description %>
+      <%= form.rich_text_area :description, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+
+    <div class="my-5">
+      <%= form.label :initial_position_x, 'Initial Position (meters) *' %>
+      <div class="w-full">
+        <%= form.text_field :initial_position_x, placeholder: 'x', class: "shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-1/4" %>
+        <%= form.text_field :initial_position_z, placeholder: 'z', class: "shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-1/4" %>
+        <%= form.text_field :initial_position_y, placeholder: 'y', class: "shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-1/4" %>
+      </div>
+    </div>
+
+    <div class="my-5">
+      <%= form.label :initial_velocity_x, 'Initial Velocity (meters per second) *' %>
+      <div class="w-full">
+        <%= form.text_field :initial_velocity_x, placeholder: 'x', class: "shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-1/4" %>
+        <%= form.text_field :initial_velocity_y, placeholder: 'y', class: "shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-1/4" %>
+        <%= form.text_field :initial_velocity_z, placeholder: 'z', class: "shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-1/4" %>
+      </div>
+    </div>
+
+    <%= link_to "Delete", "#", data: { action: "click->nested-form#remove_association" }, class: "ml-2 rounded-lg py-3 px-5 bg-red-600 inline-block text-white font-semibold" %>
+  </div>
+  <br>
+</div>
+<br>

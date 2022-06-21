@@ -16,4 +16,18 @@ RSpec.describe 'simulations/new', type: :view do
       assert_select 'input[name=?]', 'simulation[description]'
     end
   end
+
+  it 'renders universe nested form fields' do
+    render
+
+    assert_select 'form[action=?][method=?]', simulations_path, 'post' do
+      assert_select 'input[name=?]', 'simulation[universe_attributes][start_time]'
+
+      assert_select 'input[name=?]', 'simulation[universe_attributes][end_time]'
+
+      assert_select 'input[name=?]', 'simulation[universe_attributes][timestep]'
+
+      assert_select 'input[name=?]', 'simulation[universe_attributes][number_of_timesteps]'
+    end
+  end
 end

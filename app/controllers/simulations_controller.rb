@@ -18,6 +18,7 @@ class SimulationsController < ApplicationController
   # GET /simulations/new
   def new
     @simulation = Simulation.new
+    @simulation.build_universe
   end
 
   # GET /simulations/1/edit
@@ -75,7 +76,11 @@ class SimulationsController < ApplicationController
   def simulation_params
     params.require(:simulation).permit(:name, :slug, :description, :solver_method, :computation_time, :computed_at,
                                        universe_attributes: [
-                                         :simulation_id, :start_time, :end_time, :timestep, :number_of_timesteps
+                                         :_destroy, :id, :start_time, :end_time, :timestep, :number_of_timesteps
+                                       ], physics_bodies_attributes: [
+                                         :_destroy, :id, :name, :description,
+                                         :initial_position_x, :initial_position_y, :initial_position_z,
+                                         :initial_velocity_x, :initial_velocity_y, :initial_velocity_z
                                        ])
   end
 end
