@@ -14,6 +14,10 @@ A Ruby on Rails application to calculate, visualize, and render videos of orbita
 
  * ThreeJS
 
- * D3
+ * D3.JS
+
+ * FFmpeg
+
+ * SciRuby NMatrix
 
  * GNU Scientific Library

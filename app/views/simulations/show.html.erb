@@ -7,5 +7,8 @@
       <%= button_to 'Destroy this simulation', simulation_path(@simulation), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
     </div>
     <%= link_to 'Back to simulations', simulations_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <br>
+    <br>
+    <canvas id="simulation_renderer" class="w-full border-grey border-2"></canvas>
   </div>
 </div>
