@@ -24,8 +24,9 @@ class Simulation < ApplicationRecord
   has_many :physics_bodies, inverse_of: :simulation, dependent: :destroy
 
   accepts_nested_attributes_for :universe
+  accepts_nested_attributes_for :physics_bodies, allow_destroy: true, reject_if: proc { |attr| attr['name'].blank? }
 
-  validates :name, presence: true
+  validates :name, :solver_method, presence: true
   validates :name, uniqueness: true
 
   # Use the name attribute as the slug in this models URLs.

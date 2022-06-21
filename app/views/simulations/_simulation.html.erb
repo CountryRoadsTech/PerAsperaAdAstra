@@ -5,11 +5,6 @@
   </p>
 
   <p class="my-5">
-    <strong class="block font-medium mb-1">Slug:</strong>
-    <%= simulation.slug %>
-  </p>
-
-  <p class="my-5">
     <strong class="block font-medium mb-1">Description:</strong>
     <%= simulation.description %>
   </p>
@@ -17,6 +12,11 @@
   <p class="my-5">
     <strong class="block font-medium mb-1">Solver method:</strong>
     <%= simulation.solver_method %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Number of Physics Bodies:</strong>
+    <%= simulation.physics_bodies.count %>
   </p>
 
   <p class="my-5">
