@@ -4,6 +4,8 @@
 
 A Ruby on Rails application to calculate, visualize, and render videos of orbital mechanics.
 
+## Technology Stack
+
  * Ruby 3+
 
  * Ruby on Rails 7+
@@ -21,3 +23,9 @@ A Ruby on Rails application to calculate, visualize, and render videos of orbita
  * SciRuby NMatrix
 
  * GNU Scientific Library
+
+## Acknowledgments
+
+ * 3D Models from NASA https://solarsystem.nasa.gov/resources/all/
+
+ * Initial States from NASA's Horizons System (although all calculations and predictions are done internally with custom code) https://ssd.jpl.nasa.gov/horizons/app.html#/

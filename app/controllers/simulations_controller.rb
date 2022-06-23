@@ -11,6 +11,36 @@ class SimulationsController < ApplicationController
 
   # GET /simulations/1 or /simulations/1.json
   def show
+    # Pass the Physics Bodies states to Javascript for rendering.
+    gon.physics_bodies = []
+
+    if @simulation.solved?
+      gon.solved = true
+
+      @simulation.physics_bodies.each do |physics_body|
+        gon.physics_bodies << {
+          name: physics_body.name,
+          positions: physics_body.positions,
+          velocities: physics_body.velocities
+        }
+      end
+    else
+      gon.solved = false
+
+      @simulation.physics_bodies.each do |physics_body|
+        gon.physics_bodies << {
+          name: physics_body.name,
+          radius: physics_body.radius,
+          initial_position_x: physics_body.initial_position_x,
+          initial_position_y: physics_body.initial_position_y,
+          initial_position_z: physics_body.initial_position_z,
+          initial_velocity_x: physics_body.initial_velocity_x,
+          initial_velocity_y: physics_body.initial_velocity_y,
+          initial_velocity_z: physics_body.initial_velocity_z
+        }
+      end
+    end
+
     # Redirect to the latest URL if an old URL was used.
     redirect_to @simulation, status: :moved_permanently unless request.path == simulation_path(@simulation)
   end

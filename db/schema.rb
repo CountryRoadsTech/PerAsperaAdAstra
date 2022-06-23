@@ -86,6 +86,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_20_160426) do
     t.decimal "forces_x", default: [], array: true
     t.decimal "forces_y", default: [], array: true
     t.decimal "forces_z", default: [], array: true
+    t.decimal "radius", null: false
+    t.text "type"
+    t.decimal "gm"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_physics_bodies_on_name", unique: true

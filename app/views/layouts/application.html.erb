@@ -1,21 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <!-- Content meta tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>PerAsperaAdAstra</title>
 
+    <!-- Security meta tags -->
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <!-- Javascript and CSS tags -->
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
 
-    <title>PerAsperaAdAstra</title>
+    <!-- Pass data from Ruby to Javascript -->
+    <%= Gon::Base.render_data %>
   </head>
 
   <body>
-    <main class="container mx-auto mt-28 px-5 flex">
+    <main class="container mx-auto mt-28 px-5 flex flex-col">
       <%= render partial: 'shared/alerts_and_notices' %>
       <%= yield %>
     </main>

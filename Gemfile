@@ -47,6 +47,9 @@ gem 'image_processing', '~> 1.2'
 # Friendly ID allows setting a model attribute other than ID to be used in the URL slug.
 gem 'friendly_id'
 
+# Pass data from Ruby to Javascript with Gon.
+gem 'gon'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri mingw x64_mingw]

@@ -36,4 +36,8 @@ class Simulation < ApplicationRecord
   def should_generate_new_friendly_id?
     slug.blank? or name_changed?
   end
+
+  def solved?
+    self.computed_at.present? and self.computation_time.present?
+  end
 end

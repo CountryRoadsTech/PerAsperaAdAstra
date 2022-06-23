@@ -29,6 +29,16 @@ class CreatePhysicsBodies < ActiveRecord::Migration[7.0]
       t.decimal :forces_y, array: true, default: []
       t.decimal :forces_z, array: true, default: []
 
+      t.decimal :radius, null: false
+
+      # Use Single Table Inheritance (STI) with PhysicsBody
+      t.text :type
+
+      # SpacecraftBody specific attributes:
+
+      # GravityBody specific attributes:
+      t.decimal :gm # Gravitational constant times its mass
+
       t.timestamps
     end
 

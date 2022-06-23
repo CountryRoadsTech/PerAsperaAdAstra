@@ -13,6 +13,7 @@ require 'faker'
 #  forces_x           :decimal(, )      default([]), is an Array
 #  forces_y           :decimal(, )      default([]), is an Array
 #  forces_z           :decimal(, )      default([]), is an Array
+#  gm                 :decimal(, )
 #  initial_position_x :decimal(, )      not null
 #  initial_position_y :decimal(, )      not null
 #  initial_position_z :decimal(, )      not null
@@ -23,7 +24,9 @@ require 'faker'
 #  positions_x        :decimal(, )      default([]), is an Array
 #  positions_y        :decimal(, )      default([]), is an Array
 #  positions_z        :decimal(, )      default([]), is an Array
+#  radius             :decimal(, )      not null
 #  slug               :text
+#  type               :text
 #  velocities_x       :decimal(, )      default([]), is an Array
 #  velocities_y       :decimal(, )      default([]), is an Array
 #  velocities_z       :decimal(, )      default([]), is an Array
