@@ -47,6 +47,7 @@ require 'faker'
 FactoryBot.define do
   factory :physics_body do
     name { Faker::Space.unique.launch_vehicle }
+    radius { Faker::Number.between(from: -1_000, to: 1_000) }
     initial_position_x { Faker::Number.between(from: -1_000_000_000, to: 1_000_000_000) }
     initial_position_y { Faker::Number.between(from: -1_000_000_000, to: 1_000_000_000) }
     initial_position_z { Faker::Number.between(from: -1_000_000_000, to: 1_000_000_000) }

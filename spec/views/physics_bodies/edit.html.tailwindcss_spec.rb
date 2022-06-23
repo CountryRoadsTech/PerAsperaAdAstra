@@ -15,6 +15,8 @@ RSpec.describe 'physics_bodies/edit', type: :view do
 
       assert_select 'textarea[name=?]', 'physics_body[name]'
 
+      assert_select 'input[name=?]', 'physics_body[radius]'
+
       assert_select 'input[name=?]', 'physics_body[description]'
 
       assert_select 'input[name=?]', 'physics_body[initial_position_x]'

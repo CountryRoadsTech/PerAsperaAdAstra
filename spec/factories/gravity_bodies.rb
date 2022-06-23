@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: physics_bodies
@@ -42,6 +44,18 @@
 #
 FactoryBot.define do
   factory :gravity_body do
-    
+    name { Faker::Space.unique.launch_vehicle }
+    radius { Faker::Number.between(from: -1_000, to: 1_000) }
+    mu { Faker::Number.between(from: 1, to: 1_000_000) }
+    initial_position_x { Faker::Number.between(from: -1_000_000_000, to: 1_000_000_000) }
+    initial_position_y { Faker::Number.between(from: -1_000_000_000, to: 1_000_000_000) }
+    initial_position_z { Faker::Number.between(from: -1_000_000_000, to: 1_000_000_000) }
+    initial_velocity_x { Faker::Number.between(from: -1_000_000_000, to: 1_000_000_000) }
+    initial_velocity_y { Faker::Number.between(from: -1_000_000_000, to: 1_000_000_000) }
+    initial_velocity_z { Faker::Number.between(from: -1_000_000_000, to: 1_000_000_000) }
+
+    before :create do |gravity_body|
+      gravity_body.simulation ||= create(:simulation)
+    end
   end
 end

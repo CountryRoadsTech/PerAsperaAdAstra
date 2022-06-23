@@ -47,7 +47,7 @@ class PhysicsBody < ApplicationRecord
 
   belongs_to :simulation, inverse_of: :physics_bodies
 
-  validates :name, :initial_position_x, :initial_position_y, :initial_position_z,
+  validates :name, :radius, :initial_position_x, :initial_position_y, :initial_position_z,
             :initial_velocity_x, :initial_velocity_y, :initial_velocity_z, presence: true
   validates :name, uniqueness: true
 
