@@ -115,13 +115,14 @@ document.addEventListener("turbo:load", function() {
       boundingBox.update()
       root.add(boundingBox)
 
-      // Set the model to the correct size
+
       if (name == 'Hubble') {
         size = radius / 23.56 // Divide by 23 to rescale the model to unit size.
       } else {
         size = radius / 1732.051 // Divide by 1732 to rescale the model to unit size.
       }
 
+      // Set the model to the correct size
       root.scale.set(size, size, size)
 
       // Place the model at its initial position
@@ -129,21 +130,7 @@ document.addEventListener("turbo:load", function() {
       root.position.y = py
       root.position.z = pz
 
-      // Load an arrow representing the model's velocity
-      const velocityArrow = new THREE.ArrowHelper(new THREE.Vector3(vx, vy, vz),
-                                                  new THREE.Vector3(px, py, pz),
-                                                  size + Math.sqrt((vx * vx) + (vy * vy) + (vz * vz)),
-                                                  0x00FF0F)
-      root.add(velocityArrow)
-
       scene.add(root)
-
-      // Calculate and log the model's size and center
-      const box = new THREE.Box3().setFromObject(root)
-      const boxSize = box.getSize(new THREE.Vector3()).length()
-      const boxCenter = box.getCenter(new THREE.Vector3())
-      console.log(boxSize)
-      console.log(boxCenter)
     })
   }
 
