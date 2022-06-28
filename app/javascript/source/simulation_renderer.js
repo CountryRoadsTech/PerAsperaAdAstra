@@ -110,6 +110,11 @@ document.addEventListener("turbo:load", function() {
 
       const root = gltf.scene
 
+      // Load a bounding box around the model
+      var boundingBox = new THREE.BoxHelper(root, 0xFF0000)
+      boundingBox.update()
+      root.add(boundingBox)
+
       // Set the model to the correct size
       if (name == 'Hubble') {
         size = radius / 23.56 // Divide by 23 to rescale the model to unit size.
@@ -123,11 +128,6 @@ document.addEventListener("turbo:load", function() {
       root.position.x = px
       root.position.y = py
       root.position.z = pz
-
-      // Load a bounding box around the model
-      var boundingBox = new THREE.BoxHelper(root, 0xFF0000)
-      boundingBox.update()
-      root.add(boundingBox)
 
       // Load an arrow representing the model's velocity
       const velocityArrow = new THREE.ArrowHelper(new THREE.Vector3(vx, vy, vz),
